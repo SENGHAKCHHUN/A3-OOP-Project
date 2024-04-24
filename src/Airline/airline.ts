@@ -5,4 +5,7 @@ export class airline extends address {
         super(city, country);
         this.name = name;
     }
+    getName(){
+        return this.name;
+    }
 } 

@@ -1,5 +1,5 @@
-import { Person } from "../Person/person";
-import { gender } from "../Person/gender";
+import { Person } from "../person/person";
+import { gender } from "../person/gender";
 import { address } from "../address/address";
 export class passenger extends Person {
     private passport: string;
@@ -10,10 +10,10 @@ export class passenger extends Person {
         tel: string,
         email: string,
         sex: gender,
-        address: address[] = [],
+        address: address,
         passport : string,
         ticket : string,
-    ) {
+    ){
         super(id, name, tel, email, sex);
         this.passport = passport;
         this.ticket = ticket;
