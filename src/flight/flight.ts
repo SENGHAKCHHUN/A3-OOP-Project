@@ -17,16 +17,25 @@ export class flight {
         private pilots: pilot[] = [],
     ) {
     }
-    addPilot(pilot : pilot){
+    addPilot(pilot: pilot) {
         this.pilots.push(pilot);
     }
-    addattendant(attendant: attendant){
+    addattendant(attendant: attendant) {
         this.attendant.push(attendant);
     }
-    getManager(){
+    getManager() {
         return this.manage;
     }
-    getCodeShare(){
+    getCodeShare() {
         return this.codeShare;
+    }
+    getPilots() {
+        return this.pilots;
+    }
+    getAtendant() {
+        return this.manage;
+    }
+    getdepartureLocation() {
+        return this.departurePlace;
     }
 }

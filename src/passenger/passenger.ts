@@ -5,7 +5,6 @@ import { ticket } from "../ticket/ticket";
 
 export class passenger extends Person {
     private passport: string;
-    private ticket: string;
     constructor(
         id: string,
         name: string,
@@ -14,7 +13,6 @@ export class passenger extends Person {
         sex: gender,
         address: address,
         passport : string,
-        // ticket : ticket,
     ){
         super(id, name, tel, email, sex);
         this.passport = passport;
