@@ -1,11 +1,11 @@
 import { gender } from "../person/gender";
-import { Person } from "../person/person";
-class cabinCrew extends Person {
+import { employee } from "./employee";
+export class cabinCrew extends employee {
     constructor(
         private salary: string,
         id: number, name: string, tel: string, sex: gender, email: string
     ) {
-        super(id, name, tel, email, sex);
+        super(id, name, tel, sex, email);
     }
     getSalary(){
         return this.salary;

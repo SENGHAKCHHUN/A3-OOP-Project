@@ -1,6 +1,5 @@
 import { address } from "../address/address";
 import { passenger } from "../passenger/passenger";
-
 export class booking{
     private amount : string;
     private passenger : passenger;
