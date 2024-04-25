@@ -3,7 +3,7 @@ import { employee } from "./employee";
 export class cabinCrew extends employee {
     constructor(
         private salary: string,
-        id: number, name: string, tel: string, sex: gender, email: string
+        id: string, name: string, tel: string, sex: gender, email: string
     ) {
         super(id, name, tel, sex, email);
     }

@@ -1,13 +1,13 @@
 import { address } from "../address/address";
 import { gender } from "./gender";
 export class Person {
-    id: number;
+    id: string;
     name: string;
     tel: string;
     email: string;
     sex: gender;
     address: address[] = [];
-    constructor(id: number, name: string, tel: string, email: string, sex: gender) {
+    constructor(id: string, name: string, tel: string, email: string, sex: gender) {
         this.id = id;
         this.name = name;
         this.tel = tel;

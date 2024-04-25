@@ -4,7 +4,7 @@ import { attendant } from "../employee/attendant";
 import { manage } from "../employee/manager";
 import { pilot } from "../employee/pilot";
 
-class flight {
+export class flight {
     constructor(
         private flightNumber: string,
         private codeShare: string,

@@ -1,8 +1,9 @@
-import { address } from "../address/address";
-export class airline extends address {
+import { address } from "../address/address"
+export class airline{
     private name: string;
-    constructor(name: string, city: string, country: string) {
-        super(city, country);
+    private address : address;
+    constructor(name: string, address : address) {
+        this.address = address;
         this.name = name;
     }
     getName(): string{

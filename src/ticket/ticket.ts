@@ -1,5 +1,4 @@
 import { booking } from "../booking/booking";
-
 export class ticket{
     private ticketCode : string;
     private bookingReferenceNumber : booking;
