@@ -16,6 +16,7 @@ import { time } from "./src/date/time";
 import { aeroplane } from "./src/aeroplane/aeroplane";
 import { attendant } from "./src/employee/attendant";
 import { airport } from "./src/airport/airport";
+import {meal} from "./src/meal/meal";
 
 //========== addresss of passenger =========//
 let siemreap = new address("Siem reap", "Siem reap");
@@ -44,9 +45,14 @@ let booking1 = new booking("$150", p1, "BC1", khmer, uk);
 let booking2 = new booking("$222", p2, "EC21", khmer, us);
 let booking3 = new booking("$120", p3, "EF121", khmer, bakang);
 
+// ============ add food to passenger ============
+booking1.addFood(meal.Halal)
+booking1.addFood(meal.Vegetarian)
+
+
 //========== tickets ========== //
 let ticket1 = new ticket('TK1', booking1);
-let ticket2 = new ticket("TK2", booking2)
+let ticket2 = new ticket("TK2", booking2);
 let ticket3 = new ticket("TK3", booking3)
 
 //========== airline ========== // 
@@ -143,4 +149,5 @@ aeroplane1.addFlight(flight1);
 
 //============ add flight to airport ============//
 airport1.addFlight(flight1);
-airport1.findFlight("Jean");
+
+// console.log(airport1.getFlight(pilot1, date1))

@@ -2,7 +2,6 @@ import { Person } from "../person/person";
 import { gender } from "../person/gender";
 import { address } from "../address/address";
 import { ticket } from "../ticket/ticket";
-
 export class passenger extends Person {
     private passport: string;
     constructor(

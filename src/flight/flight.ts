@@ -17,6 +17,9 @@ export class flight {
         private pilots: pilot[] = [],
     ) {
     }
+    getDepartureDate() {
+        return this.departureDate;
+    }
     addPilot(pilot: pilot) {
         this.pilots.push(pilot);
     }
