@@ -9,4 +9,7 @@ export class airline{
     getName(): string{
         return this.name;
     }
+    getAddress(): address{
+        return this.address;
+    }
 } 

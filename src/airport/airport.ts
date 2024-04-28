@@ -10,7 +10,7 @@ export class airport extends address {
         super(city, country);
         this.name = name;
     }
-    getFlight(pilot: pilot, date: date) {
+    public getFlight(pilot: pilot, date: date) {
         this.flight.forEach(element => {
             if (element.getDepartureDate() == date) {
                 element.getPilots().forEach(pi => {
@@ -21,13 +21,16 @@ export class airport extends address {
             }
         });
     }
-    getBookingDetail(){
+    public getBookingDetail(){
         console.log()
     }
-    addFlight(flight: flight) {
+    public addFlight(flight: flight) {
         this.flight.push(flight);
     }
-    getName() {
+    public getName() {
         return this.name;
+    }
+    public getAddress(){
+        return this.address;
     }
 }
