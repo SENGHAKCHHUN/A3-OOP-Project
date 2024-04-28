@@ -8,7 +8,7 @@ export class manage extends employee{
     ) {
         super(id, name, tel, sex, email);
     }
-    getSalary(){
+    public getSalary(){
         return this.salary;
     }
 }

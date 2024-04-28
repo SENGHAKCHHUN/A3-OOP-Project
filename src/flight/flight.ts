@@ -17,28 +17,28 @@ export class flight {
         private pilots: pilot[] = [],
     ) {
     }
-    getDepartureDate() {
+    public getDepartureDate() {
         return this.departureDate;
     }
-    addPilot(pilot: pilot) {
+    public addPilot(pilot: pilot) {
         this.pilots.push(pilot);
     }
-    addattendant(attendant: attendant) {
+    public addattendant(attendant: attendant) {
         this.attendant.push(attendant);
     }
-    getManager() {
+    public getManager() {
         return this.manage;
     }
-    getCodeShare() {
+    public getCodeShare() {
         return this.codeShare;
     }
-    getPilots() {
+    public getPilots() {
         return this.pilots;
     }
-    getAtendant() {
+    public getAtendant() {
         return this.manage;
     }
-    getdepartureLocation() {
+    public getdepartureLocation() {
         return this.departurePlace;
     }
 }

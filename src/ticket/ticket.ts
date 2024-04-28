@@ -6,10 +6,16 @@ export class ticket{
         this.ticketCode = ticketCode;
         this.bookingReferenceNumber = bookingReferenceNumber;
     }
-    getBooking(){
+    public getBooking(){
         return this.bookingReferenceNumber;
     }
-    getPassenger(){
+    public getPassenger(){
         return this.bookingReferenceNumber
+    }
+    public getTicketCode(){
+        return this.ticketCode;
+    }
+    public addbage(){
+        this.bookingReferenceNumber.addBaggage();
     }
 }
