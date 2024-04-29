@@ -115,7 +115,7 @@ let attendant6 = new attendant("$1001", "AD-06", "chanvy", "+885 1239 076", gend
 
 // ========== flight ============//
 let flight1 = new flight(aeroplane1.getregistrationNumber(), "", khmer, singapore, date1, date2, manager1);
-let flight2 = new flight(aeroplane2.getregistrationNumber(), aeroplane1.getregistrationNumber(), singapore, uk, date2, date3, manager2);
+let flight2 = new flight("", aeroplane1.getregistrationNumber(), singapore, uk, date2, date3, manager2);
 
 // ========== add pilot to flight ========== //
 flight1.addPilot(pilot1);
@@ -150,4 +150,5 @@ aeroplane1.addFlight(flight1);
 //============ add flight to airport ============//
 airport1.addFlight(flight1);
 
-// console.log(airport1.getFlight(pilot1, date1))
+console.log(airport1.getFlight(pilot1, date1))
+// console.log(flight2)
