@@ -1,12 +1,12 @@
 import { address } from "../address/address";
 import { gender } from "./gender";
-export class Person {
-    id: string;
-    name: string;
-    tel: string;
-    email: string;
-    sex: gender;
-    address: address[] = [];
+export abstract class Person {
+    private id: string;
+    private name: string;
+    private tel: string;
+    private email: string;
+    private sex: gender;
+    private address: address[] = [];
     constructor(id: string, name: string, tel: string, email: string, sex: gender) {
         this.id = id;
         this.name = name;

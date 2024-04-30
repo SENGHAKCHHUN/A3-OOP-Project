@@ -1,13 +1,13 @@
 import { gender } from "../person/gender";
 import { employee } from "./employee";
-export class co_pilot extends employee {
+export class manage extends employee{
     constructor(
         private salary: string,
         id: string, name: string, tel: string, sex: gender, email: string
     ) {
         super(id, name, tel, sex, email);
     }
-    getSalary() {
+    getSalary(){
         return this.salary;
     }
 }

@@ -1,20 +1,16 @@
-import { address } from "../address/address";
-import { date } from "../date/date";
 import { attendant } from "../employee/attendant";
-import { manage } from "../employee/manager";
+import { manage } from "../employee/manager_flight";
 import { pilot } from "../employee/pilot";
+import { route } from "../route/route";
 
 export class flight {
     constructor(
         private flightNumber: string,
         private codeShare: string,
-        private departurePlace: address,
-        private arrivePlace: address,
-        private departureDate: date,
-        private arriveDate: date,
         private manage: manage,
         private attendant: attendant[] = [],
         private pilots: pilot[] = [],
+        private routes: route[] = [],
     ) {
     }
     addPilot(pilot: pilot) {
@@ -35,7 +31,10 @@ export class flight {
     getAtendant() {
         return this.manage;
     }
-    getdepartureLocation() {
-        return this.departurePlace;
+    getRoute(){
+        return this.routes;
+    }
+    addRoute(route: route) {
+        this.routes.push(route)
     }
 }

@@ -8,7 +8,7 @@ export class aeroplane {
         this.numberOfSeat = numberOfSeats;
         this.registrationNumber = registrationNumber;
     }
-    public getregistrationNumber() {
+    public getRegistrationNumber() {
         return this.registrationNumber;
     }
     public getFlight() {
