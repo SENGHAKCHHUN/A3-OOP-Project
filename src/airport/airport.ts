@@ -2,6 +2,8 @@ import { address } from "../address/address";
 import { date } from "../date/date";
 import { pilot } from "../employee/pilot";
 import { flight } from "../flight/flight";
+import { route } from "../route/route";
+
 export class airport extends address {
     private name: string;
     private address: address;
@@ -10,27 +12,35 @@ export class airport extends address {
         super(city, country);
         this.name = name;
     }
-    public getFlight(pilot: pilot, date: date) {
+
+    public getFlight(pilot: pilot, date: Date): flight[] {
+        return this.flight;
+    }
+
+    public addFlight(flight: flight, route: route) {
+        let confrim = false;
         this.flight.forEach(element => {
-            if (element.getDepartureDate() == date) {
-                element.getPilots().forEach(pi => {
-                    if (pi == pilot) {
-                        console.log(element)
-                    }
-                });
-            }
+            element.getRoute().forEach(element => {
+                if (route == element) {
+                    confrim = true;
+                }
+            })
         });
+        if (!confrim) {
+            flight.addRoute(route);
+            this.flight.push(flight);
+        } else {
+            console.log("This route have already flight with the same time.")
+        }
     }
-    public getBookingDetail(){
-        console.log()
-    }
-    public addFlight(flight: flight) {
-        this.flight.push(flight);
-    }
+
     public getName() {
         return this.name;
     }
-    public getAddress(){
+    public getAllFlight() {
+        return this.flight;
+    }
+    public getAddress() {
         return this.address;
     }
 }

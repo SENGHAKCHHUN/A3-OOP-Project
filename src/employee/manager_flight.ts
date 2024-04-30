@@ -1,5 +1,4 @@
 import { gender } from "../person/gender";
-import { Person } from "../person/person";
 import { employee } from "./employee";
 export class manage extends employee{
     constructor(

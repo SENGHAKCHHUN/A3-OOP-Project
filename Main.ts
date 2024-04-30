@@ -7,16 +7,14 @@ import { booking } from "./src/booking/booking";
 import { airline } from "./src/airline/airline";
 import { pilot } from "./src/employee/pilot";
 import { operationAgent } from "./src/employee/operations_agent";
-import { manage } from "./src/employee/manager";
-import { co_pilot } from "./src/employee/co_pilot";
-import { cabinCrew } from "./src/employee/cabin_crew";
+import { manage } from "./src/employee/manager_flight";
 import { flight } from "./src/flight/flight";
 import { date } from "./src/date/date";
-import { time } from "./src/date/time";
 import { aeroplane } from "./src/aeroplane/aeroplane";
 import { attendant } from "./src/employee/attendant";
 import { airport } from "./src/airport/airport";
-import {meal} from "./src/meal/meal";
+import { meal } from "./src/meal/meal";
+import { route } from "./src/route/route";
 
 //========== addresss of passenger =========//
 let siemreap = new address("Siem reap", "Siem reap");
@@ -40,20 +38,21 @@ let p1 = new passenger("PS1", "chanthou", "+885 96 39 55 09", "chan12@gmail.com"
 let p2 = new passenger("PS2", "Veak", "+885 71 66 29 129", "veak168@gmail.com", gender.Famle, siemreap, "42i4f242i4kfw");
 let p3 = new passenger("PS3", "Chandy", "+885 96 39 55 091", "dythou168@gmail.com", gender.Male, kompongThom, "12sfjsk3s");
 
+//========== add address to passenger ============//
+p1.setAddress(kompongThom)
+p2.setAddress(siemreap);
+p3.setAddress(kompongThom);
+
 //=========== bookings ==========//
-let booking1 = new booking("$150", p1, "BC1", khmer, uk);
+let booking1 = new booking("$150", p1, "BC1", khmer, uk, meal.Halal);
 let booking2 = new booking("$222", p2, "EC21", khmer, us);
 let booking3 = new booking("$120", p3, "EF121", khmer, bakang);
 
-// ============ add food to passenger ============
-booking1.addFood(meal.Halal)
-booking1.addFood(meal.Vegetarian)
-
 
 //========== tickets ========== //
-let ticket1 = new ticket('TK1', booking1);
-let ticket2 = new ticket("TK2", booking2);
-let ticket3 = new ticket("TK3", booking3)
+let ticket1 = new ticket('TK1', booking1, "00-1-PP-M");
+let ticket2 = new ticket("TK2", booking2, "00-2-PP-M")
+let ticket3 = new ticket("TK3", booking3, "00-3-PP-M")
 
 //========== airline ========== // 
 let airline1 = new airline("Phnom Penh Airline", khmer);
@@ -69,6 +68,7 @@ aeroplane2.addSeat();
 let airport1 = new airport("Phnom Penh Internation Airport", "Phnom Penh", "Cambodia");
 let airport2 = new airport("Uk internation Airport", "London", "England");
 let airport3 = new airport("Singapore Internation Airport", "singapore", "singapore")
+let airport4 = new airport("Siem Reap Airport", "Phnom Penh", "Cambodia");
 
 //========== pilot ============//
 let pilot1 = new pilot("125$", "Pl1", "Jean", "096543216", gender.Male, "jean123@gmail.com");
@@ -85,25 +85,10 @@ let manager1 = new manage("2500$", "MG1", "Roth", "088129866", gender.Male, "rot
 let manager2 = new manage("2500$", "MG2", "chen", "097129866", gender.Male, "chen@gmail.com");
 let manager3 = new manage("2500$", "MG3", "Rifin", "012129446", gender.Male, "rifin@gmail.com");
 
-// ========= co-pilot ===========//
-let copilot1 = new co_pilot("100", "C_PL1", "Cha", "01512345", gender.Male, "cha@gmail.com");
-let copilot2 = new co_pilot("100", "C_PL2", "Nea", "01512345", gender.Male, "nea@gmail.com");
-let copilot3 = new co_pilot("100", "C_PL3", "nana", "01512345", gender.Male, "nana@gmail.com");
-
-// ======== cabinCrew ===========//
-let cabinCrew1 = new cabinCrew("100", "CC1", "jing", "0123456789", gender.Male, "jing@gmail.com");
-let cabinCrew2 = new cabinCrew("100", "CC1", "srey nang", "0153450089", gender.Famle, "sreynang@gmail.com");
-let cabinCrew3 = new cabinCrew("100", "CC1", "jing", "0961233215", gender.Male, "jing@gmail.com");
-
-// ========== time ============//
-let time1 = new time("02", "30 p.m.");
-let time2 = new time("03", "30 p.m.");
-let time3 = new time("04", "30 p.m.");
-
 // ========== date ========//
-let date1 = new date(time1, 25, "April", "2024");
-let date2 = new date(time2, 25, "April", "2024");
-let date3 = new date(time3, 25, "April", "2024");
+let date1 = new date("20: 12 : 00", 25, "April", "2024");
+let date2 = new date("22: 12 : 00", 25, "April", "2024");
+let date3 = new date("24: 00 : 00 ", 25, "April", "2024");
 
 // ========== attendants ========= //
 let attendant1 = new attendant("$1001", "AD-01", "Lisa", "+885 1239 092", gender.Famle, "lisa@airline.come");
@@ -114,8 +99,12 @@ let attendant5 = new attendant("$1001", "AD-05", "dana", "+885 1239 096", gender
 let attendant6 = new attendant("$1001", "AD-06", "chanvy", "+885 1239 076", gender.Famle, "chanvy@airline.come");
 
 // ========== flight ============//
-let flight1 = new flight(aeroplane1.getregistrationNumber(), "", khmer, singapore, date1, date2, manager1);
-let flight2 = new flight("", aeroplane1.getregistrationNumber(), singapore, uk, date2, date3, manager2);
+let flight1 = new flight(aeroplane1.getRegistrationNumber(), "PH-PP-S09", manager1);
+let flight2 = new flight(aeroplane2.getRegistrationNumber(), "", manager2);
+
+// ========== create route ============== //
+let route1 = new route("17", khmer, singapore, date1, date2);
+let route2 = new route("18", singapore, uk, date2, date3);
 
 // ========== add pilot to flight ========== //
 flight1.addPilot(pilot1);
@@ -130,25 +119,16 @@ flight1.addattendant(attendant1);
 flight1.addattendant(attendant2);
 flight1.addattendant(attendant3);
 flight1.addattendant(attendant4);
-flight1.addattendant(attendant5);
-flight1.addattendant(attendant6);
-flight2.addattendant(attendant1);
-flight2.addattendant(attendant2);
+
 flight2.addattendant(attendant3);
 flight2.addattendant(attendant4);
 flight2.addattendant(attendant5);
 flight2.addattendant(attendant6);
 
-//========== add address to passenger ============//
-p1.setAddress(kompongThom)
-p2.setAddress(siemreap);
-p3.setAddress(kompongThom);
 
-//============ add flight to aeroplane ===========//
-aeroplane1.addFlight(flight1);
+// ============ add flight to airport =========== //
+airport1.addFlight(flight1, route1);
+airport1.addFlight(flight2, route1);
+// airport4.addFlight(flight2);
 
-//============ add flight to airport ============//
-airport1.addFlight(flight1);
-
-console.log(airport1.getFlight(pilot1, date1))
-// console.log(flight2)
+console.log(airport1)

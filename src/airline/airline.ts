@@ -6,10 +6,10 @@ export class airline{
         this.address = address;
         this.name = name;
     }
-    getName(): string{
+    public getName(): string{
         return this.name;
     }
-    getAddress(): address{
+    public getAddress(){
         return this.address;
     }
 } 
