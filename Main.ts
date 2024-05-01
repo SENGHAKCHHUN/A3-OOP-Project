@@ -131,4 +131,5 @@ airport1.addFlight(flight1, route1);
 airport1.addFlight(flight2, route1);
 // airport4.addFlight(flight2);
 
-console.log(airport1)
+
+console.log(flight1)
