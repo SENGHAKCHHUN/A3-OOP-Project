@@ -5,5 +5,7 @@ export class date{
         private month : string,
         private year : string,
     ){}
-
+    public getDate(): string{
+        return this.time, this.day, this.month, this.year;
+    }
 }

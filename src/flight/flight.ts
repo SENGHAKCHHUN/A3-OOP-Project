@@ -14,7 +14,7 @@ export class flight {
         private pilots: pilot[] = [],
         private routes: route[] = [],
         private passengers: booking[] = [],
-    ) {}
+    ) { }
     public addPassenger(booking: booking) {
         this.passengers.push(booking);
     }
@@ -42,16 +42,37 @@ export class flight {
     addRoute(route: route) {
         this.routes.push(route)
     }
-    getBooking(){
+    getBooking() {
         return this.passengers;
     }
-    getAllTypemeal(){
+    getAllTypemeal() {
         let foodList = [];
         this.passengers.forEach(element => {
-            if (element.getMeal() !== undefined){
-                foodList.push(element.getMeal())
+            let run = true;
+            if (element.getMeal() !== undefined) {
+                if (foodList.length !== 0) {
+                    for (let i = 0; i < foodList.length; i++) {
+                        if (String(foodList[i]) !== String(element.getMeal()) && run) {
+                            foodList.push(element.getMeal())
+                            run = false;
+                        }
+                    }
+                } else if (foodList.length == 0) {
+                    foodList.push(element.getMeal());
+                }
             }
         });
-        return "The flight number " + this.flightNumber  + "have " + foodList.length + " types of meal. " 
+        const removeDups = (foodList: number[]) : number[] => {
+            let unique: number[] = [];
+            for (let i = 0; i < foodList.length; i++) {
+                if (unique.indexOf(foodList[i]) === -1) {
+                    unique.push(foodList[i]);
+                }
+            }
+            return unique;
+        }
+        foodList = removeDups(foodList);
+        
+        return "The flight number " + this.flightNumber + "have " + foodList.length + " types of meal. "
     }
 }
