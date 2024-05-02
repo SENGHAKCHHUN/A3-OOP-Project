@@ -18,4 +18,7 @@ export class booking {
     getMeal(){
         return this.food;
     }
+    getPassenger(){
+        return this.passenger;
+    }
 }

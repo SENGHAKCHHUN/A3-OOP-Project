@@ -4,6 +4,7 @@ import { manage } from "../employee/manager_flight";
 import { pilot } from "../employee/pilot";
 import { passenger } from "../passenger/passenger";
 import { route } from "../route/route";
+import { ticket } from "../ticket/ticket";
 
 export class flight {
     constructor(
@@ -15,8 +16,9 @@ export class flight {
         private routes: route[] = [],
         private passengers: booking[] = [],
     ) { }
-    public addPassenger(booking: booking) {
+    public addPassenger(booking: booking, ticket: ticket) {
         this.passengers.push(booking);
+        booking.getPassenger().addFlightToPassenger(ticket);
     }
     public addPilot(pilot: pilot) {
         this.pilots.push(pilot);

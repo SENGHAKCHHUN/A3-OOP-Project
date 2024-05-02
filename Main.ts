@@ -53,10 +53,11 @@ p2.setAddress(siemreap);
 p3.setAddress(kompongThom);
 
 //=========== bookings ==========//
-let booking1 = new booking("$150", p1, "", khmer, singapore, meal.Halal );
+let booking1 = new booking("$150", p1, "", khmer, singapore, meal.Halal);
 let booking2 = new booking("$222", p2, "", khmer, singapore, meal.Vegetarian);
 let booking3 = new booking("$120", p3, "", khmer, singapore, meal.Vegetarian);
 let booking4 = new booking("$120", p4, "", khmer, singapore, meal.Kosher);
+let booking5 = new booking("$200", p1, "BC3", singapore, uk, meal.Halal)
 
 booking1.addSeat("BC1");
 booking2.addSeat("EC21");
@@ -65,21 +66,20 @@ booking4.addSeat("EF122");
 
 //========== tickets ========== //
 let ticket1 = new ticket('TK1', booking1, "00-1-PP-M");
-let ticket2 = new ticket("TK2", booking2, "00-2-PP-M")
-let ticket3 = new ticket("TK3", booking3, "00-3-PP-M")
-let ticket4 = new ticket("TK4", booking4, "00-4-PP-M")
+let ticket2 = new ticket("TK2", booking2, "00-2-PP-M");
+let ticket3 = new ticket("TK3", booking3, "00-3-PP-M");
+let ticket4 = new ticket("TK4", booking4, "00-4-PP-M");
+let ticket5 = new ticket("TK5", booking5, "00-439-SP-M");
 
 //========== airline ========== // 
 let airline1 = new airline("Phnom Penh Airline", khmer);
-let airline2 = new airline("chiness internation airline", bakang);
+let airline2 = new airline("singagore internation airline", singapore);
 
 //========== aeroplane =========//
 let aeroplane1 = new aeroplane("G4-43SEF", 123);
 aeroplane1.addSeat();
 let aeroplane2 = new aeroplane("BO-67-UJS", 300);
 aeroplane2.addSeat();
-
-
 
 //========== pilot ============//
 let pilot1 = new pilot(125, "Pl1", "Jean", "096543216", gender.Male, "jean123@gmail.com");
@@ -125,19 +125,20 @@ airline1.addEmployee(attendant6)
 airline1.addEmployee(operationAgent1)
 airline1.addEmployee(operationAgent2)
 airline1.addEmployee(operationAgent3)
-airline2.addEmployee(manager1)
-airline2.addEmployee(manager2)
-airline2.addEmployee(manager3)
+airline1.addEmployee(manager1)
+airline1.addEmployee(manager2)
+airline1.addEmployee(manager3)
 
 // ========== flight ============//
 let flight1 = new flight(aeroplane1.getRegistrationNumber(), "PH-PP-S09", manager1);
 let flight2 = new flight(aeroplane2.getRegistrationNumber(), "", manager2);
 
 // =========== add passenger to flight ===========//
-flight1.addPassenger(booking1)
-flight1.addPassenger(booking2)
-flight1.addPassenger(booking3)
-flight1.addPassenger(booking4);
+flight1.addPassenger(booking1, ticket1)
+flight1.addPassenger(booking2, ticket2)
+flight1.addPassenger(booking3, ticket3)
+flight1.addPassenger(booking4, ticket4);
+flight2.addPassenger(booking5, ticket5);
 
 // ========== create route ============== //
 let route1 = new route("17", khmer, singapore, date1, date2);
@@ -169,3 +170,4 @@ airport1.addFlight(flight2, route2);
 
 console.log(flight1.getAllTypemeal())
 console.log(airline1.getAllsalaryOfEmployees())
+console.log(p1)
