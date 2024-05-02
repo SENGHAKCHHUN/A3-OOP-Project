@@ -28,6 +28,12 @@ let khmer = new address("Phnom Penh", "Cambodia");
 let bakang = new address("Peknag", "Chiness");
 let singapore = new address("Singapore", "Singapore");
 
+// ========= airports ==========//
+let airport1 = new airport("Phnom Penh Internation Airport", "Phnom Penh", "Cambodia");
+let airport2 = new airport("Uk internation Airport", "London", "England");
+let airport3 = new airport("Singapore Internation Airport", "singapore", "singapore")
+let airport4 = new airport("Siem Reap Airport", "Phnom Penh", "Cambodia");
+
 //=========== chef ==========//
 let chef1 = new chef("1000$", "CF1", "cha", "091 66 28 190", gender.Male, "cha@gmail.com");
 let chef2 = new chef("1000$", "CF1", "Jonh", "091 66 28 191", gender.Famle, "jonh@gmail.com");
@@ -44,10 +50,13 @@ p2.setAddress(siemreap);
 p3.setAddress(kompongThom);
 
 //=========== bookings ==========//
-let booking1 = new booking("$150", p1, "BC1", khmer, uk, meal.Halal);
-let booking2 = new booking("$222", p2, "EC21", khmer, us);
-let booking3 = new booking("$120", p3, "EF121", khmer, bakang);
+let booking1 = new booking("$150", p1, "", khmer, singapore, meal.Halal );
+let booking2 = new booking("$222", p2, "", khmer, uk);
+let booking3 = new booking("$120", p3, "", khmer, bakang);
 
+booking1.addSeat("BC1");
+booking2.addSeat("EC21");
+booking3.addSeat("EF121");
 
 //========== tickets ========== //
 let ticket1 = new ticket('TK1', booking1, "00-1-PP-M");
@@ -64,11 +73,7 @@ aeroplane1.addSeat();
 let aeroplane2 = new aeroplane("BO-67-UJS", 300);
 aeroplane2.addSeat();
 
-// ========= airports ==========//
-let airport1 = new airport("Phnom Penh Internation Airport", "Phnom Penh", "Cambodia");
-let airport2 = new airport("Uk internation Airport", "London", "England");
-let airport3 = new airport("Singapore Internation Airport", "singapore", "singapore")
-let airport4 = new airport("Siem Reap Airport", "Phnom Penh", "Cambodia");
+
 
 //========== pilot ============//
 let pilot1 = new pilot("125$", "Pl1", "Jean", "096543216", gender.Male, "jean123@gmail.com");
@@ -102,11 +107,16 @@ let attendant6 = new attendant("$1001", "AD-06", "chanvy", "+885 1239 076", gend
 let flight1 = new flight(aeroplane1.getRegistrationNumber(), "PH-PP-S09", manager1);
 let flight2 = new flight(aeroplane2.getRegistrationNumber(), "", manager2);
 
+// =========== add passenger to flight ===========//
+flight1.addPassenger(booking1)
+flight1.addPassenger(booking2)
+flight1.addPassenger(booking3)
+
 // ========== create route ============== //
 let route1 = new route("17", khmer, singapore, date1, date2);
 let route2 = new route("18", singapore, uk, date2, date3);
 
-// ========== add pilot to flight ========== //
+// ========== add pilot to flight ==========//
 flight1.addPilot(pilot1);
 flight1.addPilot(pilot2);
 flight1.addPilot(pilot3);
@@ -128,7 +138,6 @@ flight2.addattendant(attendant6);
 
 // ============ add flight to airport =========== //
 airport1.addFlight(flight1, route1);
-airport1.addFlight(flight2, route1);
-// airport4.addFlight(flight2);
+airport1.addFlight(flight2, route2);
 
-console.log(airport1)
+console.log(flight1.getAllTypemeal())

@@ -1,15 +1,16 @@
 import { address } from "../address/address"
-export class airline{
+import { employee } from "../employee/employee";
+export class airline {
     private name: string;
-    private address : address;
-    constructor(name: string, address : address) {
+    private address: address;
+    constructor(name: string, address: address) {
         this.address = address;
         this.name = name;
     }
-    public getName(): string{
+    public getName(): string {
         return this.name;
     }
-    public getAddress(){
+    public getAddress() {
         return this.address;
     }
 } 

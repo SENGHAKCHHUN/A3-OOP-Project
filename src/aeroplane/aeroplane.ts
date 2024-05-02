@@ -1,6 +1,7 @@
 import { flight } from "../flight/flight";
 export class aeroplane {
     private registrationNumber: string;
+    
     private numberOfSeat: number;
     private seat: Array<object> = [];
     private flight: flight[] = [];

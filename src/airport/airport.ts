@@ -2,17 +2,21 @@ import { address } from "../address/address";
 import { date } from "../date/date";
 import { pilot } from "../employee/pilot";
 import { flight } from "../flight/flight";
+import { passenger } from "../passenger/passenger";
 import { route } from "../route/route";
 
 export class airport extends address {
     private name: string;
     private address: address;
     private flight: flight[] = [];
+    protected booking: passenger[] = [];
     constructor(name: string, city: string, country: string) {
         super(city, country);
         this.name = name;
     }
-
+    public addPassenger(passenger: passenger) {
+        this.booking.push(passenger);
+    }
     public getFlight(pilot: pilot, date: Date): flight[] {
         return this.flight;
     }
@@ -42,5 +46,10 @@ export class airport extends address {
     }
     public getAddress() {
         return this.address;
+    }
+    public getAllPassenger(){
+        this.flight.forEach(element => {
+            console.log(element.getBooking())
+        });
     }
 }
