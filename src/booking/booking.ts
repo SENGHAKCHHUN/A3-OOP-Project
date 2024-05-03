@@ -7,8 +7,8 @@ export class booking {
         private amount: string,
         private passenger: passenger,
         private seat: string,
-        private DepartureLocation: address,
-        private ArriveLocation: address,
+        private departureLocation: address,
+        private arriveLocation: address,
         private food?: meal,
     ) {
     }
