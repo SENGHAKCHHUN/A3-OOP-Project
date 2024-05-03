@@ -12,13 +12,10 @@ export class ticket{
     public getBooking(){
         return this.bookingReferenceNumber;
     }
-    addBag(beg : baggage){
+    public addBag(beg : baggage){
         this.baggage.push(beg)
     }
     public getTicketCode(){
         return this.ticketCode;
     }
-    // public addbage(){
-    //     this.bookingReferenceNumber.addBaggage();
-    // }
 }

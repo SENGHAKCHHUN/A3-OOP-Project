@@ -13,7 +13,7 @@ export class airline{
         this.employee.forEach(element => {
             salary += element.getSalary()
         });
-        return "The " + this.getName() + " have paid for per month are "+ salary +" $ fro all employees.";
+        return "The " + this.getName() + " have paid for per month are "+ salary +"$ fro all employees.";
     }
     public addEmployee(employee: employee){
         this.employee.push(employee)

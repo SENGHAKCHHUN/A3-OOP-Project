@@ -1,10 +1,10 @@
 import { flight } from "../flight/flight";
 export class aeroplane {
     private registrationNumber: string;
-    
     private numberOfSeat: number;
     private seat: Array<object> = [];
     private flight: flight[] = [];
+
     constructor(registrationNumber: string, numberOfSeats: number) {
         this.numberOfSeat = numberOfSeats;
         this.registrationNumber = registrationNumber;

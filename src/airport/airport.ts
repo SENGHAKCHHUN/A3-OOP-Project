@@ -1,10 +1,8 @@
 import { address } from "../address/address";
-import { date } from "../date/date";
 import { pilot } from "../employee/pilot";
 import { flight } from "../flight/flight";
 import { passenger } from "../passenger/passenger";
 import { route } from "../route/route";
-
 export class airport extends address {
     private name: string;
     private address: address;

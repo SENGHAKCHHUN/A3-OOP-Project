@@ -171,3 +171,4 @@ airport1.addFlight(flight2, route2);
 console.log(flight1.getAllTypemeal())
 console.log(airline1.getAllsalaryOfEmployees())
 console.log(p1)
+console.log(route1.getArriveDate())

@@ -12,13 +12,13 @@ export class booking {
         private food?: meal,
     ) {
     }
-    addSeat(seatCode: string) {
+    public addSeat(seatCode: string) {
         this.seat = seatCode;
     }
-    getMeal(){
+    public getMeal(){
         return this.food;
     }
-    getPassenger(){
+    public getPassenger(){
         return this.passenger;
     }
 }
